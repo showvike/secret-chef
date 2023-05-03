@@ -1,11 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
-  const { auth, googleProvider, githubProvider, popUpSignIn } =
+  const [error, setError] = useState("");
+  const { auth, googleProvider, githubProvider, signIn, popUpSignIn } =
     useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    userSignIn(email, password);
+  };
+
+  const userSignIn = (email, password) => {
+    setError("");
+    signIn(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        const message = error.message;
+        console.log(message);
+        setError(message);
+      });
+  };
 
   const handleSignIn = (provider) => {
     popUpSignIn(auth, provider)
@@ -22,7 +48,11 @@ const Login = () => {
   return (
     <div className="my-4 flex flex-col gap-12 justify-center items-center">
       <h2 className="font-semibold text-4xl">Login</h2>
-      <form className="font-medium flex flex-col" action="#">
+      <form
+        onSubmit={handleFormSubmit}
+        className="font-medium flex flex-col"
+        action="#"
+      >
         <label htmlFor="email">
           Your Email
           <br />
@@ -53,6 +83,7 @@ const Login = () => {
           value="Login"
         />
       </form>
+      {error && <p className="font-semibold text-red-700">{error}</p>}
       <div>
         <h3 className="text-center font-semibold">
           <span className="font-medium">Or</span>

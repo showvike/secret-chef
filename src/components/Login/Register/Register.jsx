@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
   const { auth, registerUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const Register = () => {
   };
 
   const emailAndPasswordValidation = (email, password) => {
+    setError("");
     if (!(email && password))
       return setError("Error: Please Enter Email & Password Both!");
     else if (password.length < 6)
@@ -38,15 +40,20 @@ const Register = () => {
       .catch((error) => {
         const message = error.message;
         console.log(message);
+        setError(message);
       });
   };
 
   const userUpdate = (name, photoUrl) => {
     updateUser(auth.currentUser, { displayName: name, photoURL: photoUrl })
-      .then(() => {})
+      .then(() => {
+        navigate("/");
+        navigate(0);
+      })
       .catch((error) => {
         const message = error.message;
         console.log(message);
+        setError(message);
       });
   };
 

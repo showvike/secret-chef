@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -26,6 +27,9 @@ const AuthProvider = ({ children }) => {
     onAuthStateChanged(auth, (user) => (user ? setUser(user) : setUser(null)));
   }, []);
 
+  const signIn = (auth, email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
+
   const popUpSignIn = (auth, provider) => signInWithPopup(auth, provider);
 
   const registerUser = (auth, email, password) =>
@@ -40,6 +44,7 @@ const AuthProvider = ({ children }) => {
     auth,
     googleProvider,
     githubProvider,
+    signIn,
     popUpSignIn,
     registerUser,
     updateUser,
