@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../../Share/Footer/Footer";
 import Header from "../../Share/Header/Header";
 
 const Main = () => {
@@ -7,7 +6,7 @@ const Main = () => {
     <div className="container mx-auto font-poppins">
       <Header />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
