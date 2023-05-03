@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
   onAuthStateChanged,
@@ -17,17 +18,24 @@ const AuthProvider = ({ children }) => {
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => (user ? setUser(user) : setUser(null)));
   }, []);
 
-  const googleSignIn = (auth, googleProvider) =>
-    signInWithPopup(auth, googleProvider);
+  const popUpSignIn = (auth, provider) => signInWithPopup(auth, provider);
 
   const logOut = (auth) => signOut(auth);
 
-  const value = { user, auth, googleProvider, googleSignIn, logOut };
+  const value = {
+    user,
+    auth,
+    googleProvider,
+    githubProvider,
+    popUpSignIn,
+    logOut,
+  };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

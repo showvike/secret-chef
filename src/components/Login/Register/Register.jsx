@@ -41,6 +41,7 @@ const Register = () => {
             type="text"
             name="name"
             placeholder="Enter your name"
+            required
           />
         </label>
         <br />
@@ -76,6 +77,7 @@ const Register = () => {
             type="text"
             name="photo-url"
             placeholder="Enter your photo url"
+            required
           />
         </label>
         <br />

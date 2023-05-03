@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
-  const { auth, googleProvider, googleSignIn } = useContext(AuthContext);
+  const { auth, googleProvider, githubProvider, popUpSignIn } =
+    useContext(AuthContext);
 
-  const handleGoogleSignIn = () => {
-    googleSignIn(auth, googleProvider)
+  const handleSignIn = (provider) => {
+    popUpSignIn(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -60,13 +61,16 @@ const Login = () => {
         </h3>
         <div className="mt-4">
           <button
-            onClick={handleGoogleSignIn}
+            onClick={() => handleSignIn(googleProvider)}
             className="bg-dark-01 text-white font-medium px-4 py-2 rounded"
           >
             <FaGoogle className="inline mr-1" />
             Google
           </button>
-          <button className="bg-dark-01 text-white font-medium px-4 py-2 rounded ml-1">
+          <button
+            onClick={() => handleSignIn(githubProvider)}
+            className="bg-dark-01 text-white font-medium px-4 py-2 rounded ml-1"
+          >
             <FaGithub className="inline mr-1" />
             GitHub
           </button>
