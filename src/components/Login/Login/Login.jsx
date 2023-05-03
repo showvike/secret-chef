@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="h-[80vh] flex flex-col gap-12 justify-center items-center">
+    <div className="my-4 flex flex-col gap-12 justify-center items-center">
       <h2 className="font-semibold text-4xl">Login</h2>
       <form className="font-medium flex flex-col" action="#">
         <label htmlFor="email">
