@@ -1,7 +1,23 @@
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
+  const { auth, googleProvider, googleSignIn } = useContext(AuthContext);
+
+  const handleGoogleSignIn = () => {
+    googleSignIn(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const message = error.message;
+        console.log(message);
+      });
+  };
+
   return (
     <div className="my-4 flex flex-col gap-12 justify-center items-center">
       <h2 className="font-semibold text-4xl">Login</h2>
@@ -14,6 +30,7 @@ const Login = () => {
             type="email"
             name="email"
             placeholder="Enter your email"
+            required
           />
         </label>
         <br />
@@ -25,6 +42,7 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="Enter your password"
+            required
           />
         </label>
         <br />
@@ -41,7 +59,10 @@ const Login = () => {
           Sign-in with
         </h3>
         <div className="mt-4">
-          <button className="bg-dark-01 text-white font-medium px-4 py-2 rounded">
+          <button
+            onClick={handleGoogleSignIn}
+            className="bg-dark-01 text-white font-medium px-4 py-2 rounded"
+          >
             <FaGoogle className="inline mr-1" />
             Google
           </button>

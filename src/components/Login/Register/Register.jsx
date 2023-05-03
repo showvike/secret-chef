@@ -14,14 +14,15 @@ const Register = () => {
     const photoUrl = form["photo-url"].value;
     console.log(name, email, password, photoUrl);
     if (!emailAndPasswordValidation(email, password)) return;
+    console.log("hi");
   };
 
   const emailAndPasswordValidation = (email, password) => {
     if (!(email && password))
       return setError("Error: Please Enter Email & Password Both!");
     else if (password.length < 6)
-      return setError("Error: Please Enter a six characters password!");
-    return false;
+      return setError("Error: Password Should Be Six Character Long!");
+    return true;
   };
 
   return (
@@ -40,7 +41,6 @@ const Register = () => {
             type="text"
             name="name"
             placeholder="Enter your name"
-            required
           />
         </label>
         <br />
@@ -76,7 +76,6 @@ const Register = () => {
             type="text"
             name="photo-url"
             placeholder="Enter your photo url"
-            required
           />
         </label>
         <br />
