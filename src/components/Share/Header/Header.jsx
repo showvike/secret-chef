@@ -40,7 +40,7 @@ const Header = () => {
                 <button onClick={handleLogOut}>
                   <img
                     title={user?.displayName ? user?.displayName : ""}
-                    className="w-10 h-10 rounded-full"
+                    className="w-10 h-10 rounded-full object-cover"
                     src={user?.photoURL ? user?.photoURL : defaultPhoto}
                     alt={user?.email}
                   />
