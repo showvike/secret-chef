@@ -1,5 +1,6 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Recipe from "../Recipe/Recipe";
+import Spinner from "../Spinner/Spinner";
 
 const Recipes = () => {
   const chef = useLoaderData();
@@ -13,6 +14,7 @@ const Recipes = () => {
     recipes,
     id,
   } = chef;
+  const navigation = useNavigation();
 
   return (
     <div className="my-8">
@@ -20,6 +22,7 @@ const Recipes = () => {
         {" "}
         Chef Recipes
       </h2>
+      <Spinner navigation={navigation} />
       <section className="grid grid-cols-2 items-center gap-12 p-8">
         <div className="mx-auto">
           <img
