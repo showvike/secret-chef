@@ -31,10 +31,6 @@ const router = createBrowserRouter([
             `https://b7a10-chef-recipe-hunter-server-side-showvike-showvike.vercel.app/chefs/${params.id}`
           ),
       },
-      {
-        path: "*",
-        element: <Error />,
-      },
     ],
     errorElement: <Error />,
   },

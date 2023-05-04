@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import defaultPhoto from "../../../assets/default-photo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -23,10 +23,24 @@ const Header = () => {
         </h1>
         <ul className="flex gap-8 font-medium items-center">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive ? "text-green-500" : isPending ? "text-yellow-500" : ""
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive ? "text-green-500" : isPending ? "text-yellow-500" : ""
+              }
+              to="/blog"
+            >
+              Blog
+            </NavLink>
           </li>
           <li>
             {!user ? (
