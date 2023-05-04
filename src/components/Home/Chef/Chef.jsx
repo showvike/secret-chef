@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const Chef = ({ chef }) => {
   const {
@@ -6,6 +8,7 @@ const Chef = ({ chef }) => {
     years_of_experience,
     numbers_of_recipes,
     likes,
+    id,
   } = chef;
 
   return (
@@ -21,14 +24,16 @@ const Chef = ({ chef }) => {
         <h3 className="font-semibold text-2xl">{chef_name}</h3>
         <div className="mt-4 text-dark-01 font-medium grid gap-2">
           <p>Experience: {years_of_experience} years</p>
-          <p>Likes: {likes}</p>
           <p>Recipes: {numbers_of_recipes}</p>
+          <p>Likes: {likes}</p>
         </div>
       </div>
       <div className="mt-8">
-        <button className="bg-black text-white rounded px-4 py-2 font-medium">
-          View Recipes
-        </button>
+        <Link to={`/recipes/${id}`}>
+          <button className="bg-black text-white rounded px-4 py-2 font-medium">
+            View Recipes
+          </button>
+        </Link>
       </div>
     </div>
   );
