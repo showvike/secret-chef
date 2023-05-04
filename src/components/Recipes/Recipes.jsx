@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Recipe from "../Recipe/Recipe";
 
 const Recipes = () => {
   const chef = useLoaderData();
@@ -9,6 +10,7 @@ const Recipes = () => {
     likes,
     numbers_of_recipes,
     years_of_experience,
+    recipes,
     id,
   } = chef;
 
@@ -36,6 +38,11 @@ const Recipes = () => {
           </div>
         </div>
       </section>
+      <div className="mt-6 grid grid-cols-3 justify-items-center gap-4">
+        {recipes.map((recipe) => (
+          <Recipe key={Math.random() * id} recipe={recipe} />
+        ))}
+      </div>
     </div>
   );
 };
