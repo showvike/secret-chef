@@ -17,11 +17,11 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="flex justify-between bg-dark-01 text-white py-12 items-center px-4 rounded">
+      <nav className="flex flex-col md:flex-row gap-4 justify-between bg-dark-01 text-white py-12 items-center px-4 rounded">
         <h1 className="font-bold text-5xl">
           <Link to="/">Secret Chef</Link>
         </h1>
-        <ul className="flex gap-8 font-medium items-center">
+        <ul className="flex flex-col md:flex-row gap-8 font-medium items-center">
           <li>
             <NavLink
               className={({ isActive, isPending }) =>

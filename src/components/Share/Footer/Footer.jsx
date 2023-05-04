@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-01 text-white px-4 py-12 grid grid-cols-4 gap-8 rounded">
+    <footer className="bg-dark-01 text-white px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8 rounded">
       <div>
         <h1 className="font-bold text-3xl">
           <Link to="/">Secret Chef</Link>
@@ -42,7 +42,7 @@ const Footer = () => {
           </button>
         </form>
       </div>
-      <p className="font-semibold col-span-4 text-center">
+      <p className="font-semibold md:col-span-4 text-center">
         <small>Developed By showvike © Made With 💝 2023</small>
       </p>
     </footer>

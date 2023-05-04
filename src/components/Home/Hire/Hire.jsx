@@ -8,10 +8,10 @@ const Hire = () => {
       </h2>
       <div
         style={{ backgroundImage: `url(${hireFromUs})` }}
-        className="mt-6 bg-cover bg-center h-96 rounded grid grid-cols-2 justify-items-center items-center text-white"
+        className="mt-6 bg-cover bg-center md:h-96 p-4 md:p-0 rounded grid md:grid-cols-2 justify-items-center items-center text-white"
       >
-        <div className="w-96">
-          <h3 className="font-bold text-7xl">
+        <div className="md:w-96">
+          <h3 className="font-bold text-3xl md:text-7xl">
             Hire
             <br />
             From
@@ -29,7 +29,7 @@ const Hire = () => {
               Your Name
               <br />
               <input
-                className="border border-solid px-4 py-2 rounded"
+                className="border border-solid px-4 py-2 rounded w-full"
                 type="name"
                 name="name"
                 placeholder="Enter your name"
@@ -41,7 +41,7 @@ const Hire = () => {
               Your Email
               <br />
               <input
-                className="border border-solid px-4 py-2 rounded"
+                className="border border-solid px-4 py-2 rounded w-full"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -53,7 +53,7 @@ const Hire = () => {
               Your Message
               <br />
               <input
-                className="border border-solid px-4 py-2 rounded"
+                className="border border-solid px-4 py-2 rounded w-full"
                 type="message"
                 name="message"
                 placeholder="Enter your message"

@@ -20,7 +20,7 @@ const Chefs = () => {
       <h2 className="text-center font-bold text-4xl text-dark-01">
         Our Secret Chefs
       </h2>
-      <div className="mt-6 grid grid-cols-3 justify-items-center gap-4 relative">
+      <div className="mt-6 grid md:grid-cols-3 justify-items-center gap-4 relative">
         <Spinner navigation={navigation} />
         {chefs.map((chef) => (
           <Chef key={Math.random() * chef.id} chef={chef} />
