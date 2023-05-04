@@ -1,6 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+
 const Recipe = ({ recipe }) => {
+  const [buttonDisable, setButtonDisable] = useState(false);
+
   const { image, recipe_name, ingredients, cooking_method, rating } = recipe;
+
+  const handleFavoriteButton = (recipeName) => {
+    toast(`Your favorite is ${recipeName}`, {
+      icon: "💓",
+    });
+    setButtonDisable(true);
+  };
+
   return (
     <div className="border border-solid p-4 rounded text-center">
       <div>
@@ -27,7 +40,13 @@ const Recipe = ({ recipe }) => {
         </div>
       </div>
       <div className="mt-8">
-        <button className="bg-black text-white rounded px-4 py-2 font-medium">
+        <button
+          onClick={() => handleFavoriteButton(recipe_name)}
+          className={`${
+            !buttonDisable ? "bg-black text-white" : "bg-gray-600"
+          } rounded px-4 py-2 font-medium`}
+          disabled={buttonDisable}
+        >
           Favorite
         </button>
       </div>
