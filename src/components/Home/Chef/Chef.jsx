@@ -18,7 +18,7 @@ const Chef = ({ chef }) => {
         />
       </div>
       <div className="mt-4">
-        <h4 className="font-semibold text-2xl">{chef_name}</h4>
+        <h3 className="font-semibold text-2xl">{chef_name}</h3>
         <div className="mt-4 text-dark-01 font-medium grid gap-2">
           <p>Experience: {years_of_experience} years</p>
           <p>Likes: {likes}</p>
