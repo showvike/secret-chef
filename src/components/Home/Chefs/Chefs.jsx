@@ -13,11 +13,15 @@ const Chefs = () => {
   }, []);
 
   return (
-    <section className="my-8">
-      <h2 className="text-center font-bold text-4xl mb-4">Our Secret Chefs</h2>
-      {chefs.map((chef) => (
-        <Chef key={Math.random() * chef.id} chef={chef} />
-      ))}
+    <section className="my-8 px-4">
+      <h2 className="text-center font-bold text-4xl text-dark-01">
+        Our Secret Chefs
+      </h2>
+      <div className="mt-6 grid grid-cols-3 justify-items-center gap-4">
+        {chefs.map((chef) => (
+          <Chef key={Math.random() * chef.id} chef={chef} />
+        ))}
+      </div>
     </section>
   );
 };
