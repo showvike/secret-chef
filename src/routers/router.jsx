@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Error from "../components/Error/Error";
 import Home from "../components/Home/Home/Home";
 import Main from "../components/Layout/Main/Main";
 import Login from "../components/Login/Login/Login";
@@ -30,7 +31,12 @@ const router = createBrowserRouter([
             `https://b7a10-chef-recipe-hunter-server-side-showvike-showvike.vercel.app/chefs/${params.id}`
           ),
       },
+      {
+        path: "*",
+        element: <Error />,
+      },
     ],
+    errorElement: <Error />,
   },
 ]);
 

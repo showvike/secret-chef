@@ -13,7 +13,7 @@ const Recipe = ({ recipe }) => {
     });
     setButtonDisable(true);
   };
-  console.log("hi");
+
   return (
     <div className="border border-solid p-4 rounded text-center">
       <div>
