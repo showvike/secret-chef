@@ -10,9 +10,6 @@ export default {
       colors: {
         "dark-01": "#212529",
       },
-      backgroundImage: {
-        "join-us": "url('./src/assets/join-us.jpg')",
-      },
     },
   },
   plugins: [require("daisyui")],

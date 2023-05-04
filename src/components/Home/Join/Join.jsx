@@ -1,8 +1,13 @@
+import joinUs from "../../../assets/join-us.jpg";
+
 const Join = () => {
   return (
     <section className="my-8 px-4">
       <h2 className="text-center font-bold text-4xl text-dark-01">Join Us</h2>
-      <div className="mt-6 bg-join-us bg-cover bg-center h-96 rounded grid grid-cols-2 justify-items-center items-center text-white">
+      <div
+        style={{ backgroundImage: `url(${joinUs})` }}
+        className="mt-6 bg-cover bg-center h-96 rounded grid grid-cols-2 justify-items-center items-center text-white"
+      >
         <div className="w-96">
           <h3 className="font-bold text-7xl">
             Join <span className="text-black">Us</span>
