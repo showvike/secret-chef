@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazy-load";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import Recipe from "../Recipe/Recipe";
 import Spinner from "../Spinner/Spinner";
@@ -25,11 +26,13 @@ const Recipes = () => {
       <Spinner navigation={navigation} />
       <section className="grid grid-cols-2 items-center gap-12 p-8">
         <div className="mx-auto">
-          <img
-            className="w-96 h-96 object-cover rounded"
-            src={chef_picture}
-            alt="chef"
-          />
+          <LazyLoad height={384} width={384}>
+            <img
+              className="w-96 h-96 object-cover rounded"
+              src={chef_picture}
+              alt="chef"
+            />
+          </LazyLoad>
         </div>
         <div className="w-96 mx-auto">
           <h3 className="font-semibold text-4xl text-dark-01">{chef_name}</h3>
